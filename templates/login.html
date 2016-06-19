@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block title %}
+Log In
+{% endblock %}
+{% block menu %}
+		{% if not session.logged_in %}
+        <li><a href = "{{ url_for('login') }}">Log In </a></li>
+		{% else %}
+
+        <li><a href="{{ url_for('write') }}">Write</a> </li>
+		<a href = "{{ url_for('logout') }}">Log Out</a>
+		{% endif %}
+{% endblock %}
+{% block content %}
+{% if not session.logged_in %}
+<div id="login">
+  <h2>Login</h2>
+  {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+  <form id="login_table" action="{{ url_for('login') }}" method=post>
+    <dl>
+      <dt>Username:
+      <dd><input type=text name=username>
+      <dt>Password:
+      <dd><input type=password name=password>
+      <dd><input type=submit value=Login>
+    </dl>
+  </form>
+</div>
+{% else %}
+    Welcome You have logged in
+{% endif %}
+{% endblock %}

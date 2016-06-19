@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block title %}
+Write
+{% endblock %}
+
+{% block menu %}
+		{% if not session.logged_in %}
+        <li><a href = "{{ url_for('login') }}">Log In </a></li>
+		{% else %}
+
+        <li><a href="write">Write</a> </li>
+		<a href = "{{ url_for('logout') }}">Log Out</a>
+		{% endif %}
+{% endblock %}
+{% block content %}
+<div id="login" width="100%">
+  {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+  {% if entry %}
+  <form id="update" action="{{ url_for('update') }}" method=post>
+        <div>
+            Title
+        </div>
+        <div>
+            <input type="text"  name=title width="300px" value={{ entry.title }}>
+            <input type="hidden"  name=id  value="{{ entry.bid }}">
+        </div>
+        <div>
+            Text
+        </div>
+          <textarea class="ckeditor" name="content0" cols="160" rows="18" form="update">
+              {{ entry.text }}
+          </textarea>
+        <input type=submit value=Update float="top"> 
+  {% else %}
+  </form>
+    <form action="/add" method=post id="write_table" width="100%">
+        <div>
+            Title
+        </div>
+        <div>
+            <input type=text name=title width="300px" value= "default">
+        </div>
+        <div>
+            Text
+        </div>
+      <div>
+          <textarea class="ckeditor" name="content2" cols="160" rows="18" form="write_table">
+          </textarea>
+      </div>
+    <div>
+        <input type=submit value= Add float="top"> 
+  </div>
+  </form>
+  {% endif %}
+</div>
+{% endblock %}

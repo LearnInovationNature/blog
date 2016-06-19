@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
+<style type="text/css">
+div#container{width:100%;height:110%;}
+div#header {background-color:#20bbbb;height:80px;width:100%;}
+div#divide {min-height:5px;float:top;width:100%;}
+div#menu {background-color:#ffff99; height:200px; width:100%; float:left;}
+div#content {
+    height:1800px;
+    width:100%; 
+    float:top;
+    background-color:#eef1f2;
+    background-image: url(./static/bk0.jpg);
+    font-color: #ff0000;
+}
+
+div#titles{
+    width:100%; 
+    font-color: #ff0000;
+    text-align:center;
+    font-size:35px;
+    min-height:30px;
+    background-color:#8ee1e2;
+}
+div#blogs{
+    width:100%; 
+    font-color: #ff0000;
+    font-size:30px;
+    text-align:left;
+}
+
+
+div#footer {
+    background-color:#20bbbb;
+    clear:both;
+    text-align:center;
+    min-height:30px; 
+   float:top;}
+
+h1 {margin-bottom:0;}
+h2 {margin-bottom:0; font-size:14px;}
+p  {margin-bottom:0; font-size:14px; color:#00ff00;}
+ul {margin:0;}
+li {list-style:none;float:left;min-width:110px;}
+#header {background-image: url(/home/lin/Pictures/1.jpg);} 
+</style>
+<title>
+{% block title %}
+{% endblock %}
+</title>
+<script src="//cdn.ckeditor.com/4.4.6/standard/ckeditor.js">
+</script>
+</head>
+
+<body>
+
+<div id="container">
+
+<div id="header">
+<h1>Lin's Blog</h1>
+<ul>
+    <li><a href="/author">About Me</a> </li>
+    <li><a href="/blogs">Blog</a> </li>
+    {% block menu %}
+    {% endblock %}
+</ul>
+</div>
+<div id="content">
+    {% block content %}
+    {% endblock %}
+   </div>
+
+</div>
+<script language="javascript" type="text/javascript">
+    function size_change() {
+     //   document.write("<p>Hello world </p>");
+    }
+</script>
+<script language="javascript" type="text/javascript">
+    window.onresize = size_change();
+</script>
+{% block script %}
+{% endblock %}
+</body>
+</html>

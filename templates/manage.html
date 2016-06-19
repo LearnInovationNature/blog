@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block title %}
+Write
+{% endblock %}
+{% block menu %}
+		{% if not session.logged_in %}
+        <li><a href = "{{ url_for('login') }}">Log In </a></li>
+		{% else %}
+
+        <li><a href="write">Write</a> </li>
+		<a href = "{{ url_for('logout') }}">Log Out</a>
+		{% endif %}
+{% endblock %}
+{% block content %}
+<div width="100%">
+  {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+   
+</div>
+{% endblock %}

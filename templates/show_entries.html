@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+  {% for entry in entries %}
+  <div id="titles">
+      <a href='/blogs/{{ entry.id }}'><h2>{{ entry.title }}</h2></a>
+  </div>
+  {% else %}
+  <div>
+      no blogs
+  </div>
+  {% endfor %}
+{% endblock %}

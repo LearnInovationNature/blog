@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% if session.logged_in %}
+{% block menu %}
+{% if session.logged_in %}
+<li> <a href="/edit/{{ entry.bid }}"> Edit </a> </li>
+<li> <a href="/delete/{{ entry.bid }}"> Delete </a> </li>
+{% endif %}
+{% endblock %}
+{% endif %}
+{% block title %}
+Blog
+{% endblock %}
+{% block content %}
+  <div>
+      <div id="titles">
+     {{ entry.title }}
+         </div>
+    <div id="blogs" >
+    {{ entry.text | safe }}
+  </div>
+  </div>
+{% endblock %}
+{% block script %}
+<script language="javascript" type="text/javascript">
+</script>
+{% endblock %}

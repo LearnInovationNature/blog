@@ -7,7 +7,7 @@ Write
         <li><a href = "{{ url_for('login') }}">Log In </a></li>
 		{% else %}
 
-        <li><a href="write">Write</a> </li>
+        <li><a href=" {{ url_for('write') }}">Write</a> </li>
 		<a href = "{{ url_for('logout') }}">Log Out</a>
 		{% endif %}
 {% endblock %}
